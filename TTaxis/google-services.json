@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "589942987775",
+    "project_id": "firebase-ttaxi"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:589942987775:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "589942987775-j70r69t4970o81vd3v7e8d3s93lik23l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "026759a8c9924719da0894e37ed7f61cd77bb30a"
+          }
+        },
+        {
+          "client_id": "589942987775-9r8jola8k0vjemv9kf06g093pgub5m78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCx0mjnUx2NybcJQ-MluP7EEJB8gESiFaQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

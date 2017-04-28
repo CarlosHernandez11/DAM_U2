@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Registro de Usuario
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formulario" (ngSubmit)="enviar()">
+    <ion-list>
+      <!-- Nombre-->
+      <ion-item>
+        <ion-icon name="person" item-left></ion-icon>
+        <ion-label stacked>Nombre:</ion-label>
+        <ion-input formControlName="nombre" type="text" placeholder="Ingresa tu(s) nombre(s)"></ion-input>
+      </ion-item>
+      <div  *ngIf="formulario.get('nombre').errors && this.formulario.get('nombre').dirty">
+          <p *ngIf="formulario.get('nombre').hasError('required')" color="danger">El nombre es obligatorio</p>
+          <p *ngIf="formulario.get('nombre').hasError('minlength')" color="danger">Minimo 3 caracteres</p>
+      </div>
+      <!-- Email-->
+      <ion-item>
+        <ion-icon name="mail" item-left></ion-icon>
+        <ion-label stacked>Correo electronico:</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Ingresa tu email" ></ion-input>
+      </ion-item>
+      <ion-item *ngIf="formulario.get('email').errors && formulario.get('email').dirty">
+      <p *ngIf="formulario.get('email').hasError('required')" color="danger">El email es obligatorio</p>
+      <p *ngIf="formulario.get('email').hasError('pattern')" color="danger">El campo introducido no es un email</p>
+    </ion-item>
+      <!-- Fecha nacimiento-->
+      <ion-item>
+        <ion-icon name="calendar" item-left></ion-icon>
+        <ion-label stacked>Fecha de nacimiento:</ion-label>
+        <ion-datetime formControlName="nacimiento" displayFormat="DD/MM/YYYY" placeholder="DD/MM/YYYY" (ionCancel)="dateValid()" (ionChange)="dateValid()"></ion-datetime>  
+      </ion-item>
+      <div class="paddingLeft" *ngIf ="formulario.get('nacimiento').untouched && formulario.get('nacimiento').invalid"  color="danger">
+          <p [hidden]="nac" color="danger">Fecha de nacimiento invalida</p>
+      </div>
+      <!-- Estado civil-->
+      <ion-item>
+        <ion-icon name="heart" item-left></ion-icon>
+        <ion-label stacked>Estado civil</ion-label>
+        <ion-select formControlName="estado" (ionCancel)="selectValid()" (ionChange)="selectValid()">
+          <ion-option value="1" selected="true">Soltero/a</ion-option>
+          <ion-option value="2">Comprometido/a</ion-option>
+          <ion-option value="3">Casado/a</ion-option>
+          <ion-option value="4">Divorciado/a</ion-option>
+          <ion-option value="5">Viudo/a</ion-option>
+        </ion-select>
+        <ion-item >
+          <p [hidden]="edo" color="danger" >El estado civil es obligatorio</p>
+        </ion-item>
+      </ion-item>
+      <!-- Genero-->
+      <ion-list radio-group formControlName="genero">
+        <ion-list-header>
+          Género
+        </ion-list-header>
+        <ion-item>
+          <ion-icon name="woman" item-left></ion-icon>
+          <ion-label>Mujer</ion-label>
+          <ion-radio value="F"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="man" item-left></ion-icon>
+          <ion-label>Hombre</ion-label>
+          <ion-radio value="M"></ion-radio>
+        </ion-item>
+        <ion-item >
+           <p *ngIf="formulario.get('genero').hasError('required')" color="danger" padding-left>Debes Seleccionar tu genero </p>
+        </ion-item>
+    </ion-list>
+      <!-- Intereses-->
+      <ion-list>
+        <ion-list-header>
+          Intereses
+        </ion-list-header>
+        <ion-item>
+          <ion-label>ISC</ion-label>
+          <ion-checkbox formControlName="isc" ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>TIC's</ion-label>
+          <ion-checkbox formControlName="tic" ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Mecatronica</ion-label>
+          <ion-checkbox formControlName="mec" ></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Otros</ion-label>
+          <ion-checkbox formControlName="otr" ></ion-checkbox>
+        </ion-item>
+      </ion-list>
+      <ion-item >
+        <p [hidden]="interes" color="danger" >Seleccione al menos un interes</p>
+      </ion-item>
+    </ion-list>
+    <ion-fab bottom right>
+     <button ion-fab [disabled]="!formulario.valid" type="submit">Enviar</button>
+    </ion-fab>
+  </form>
+</ion-content>

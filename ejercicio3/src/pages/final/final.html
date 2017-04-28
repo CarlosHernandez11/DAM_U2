@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+     Informacion de usuario
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-card >
+        <ion-card-header>identificación</ion-card-header>
+        <ion-card-content>
+            <p>Nombre: {{params.data.nombre}}</p>
+            <p>Email: {{params.data.email}}</p>
+        </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <ion-card-header>Personal</ion-card-header>
+        <ion-card-content>
+            <p>Fecha Nacimiento: {{params.data.nacimiento}}</p>
+            <p>Estado Civil: {{params.data.estado}}</p>
+            <p>Genero: {{params.data.genero}}</p>
+        </ion-card-content>
+    </ion-card>
+    <ion-card >
+        <ion-card-header>Intereses</ion-card-header>
+        <ion-card-content>
+            <ion-item>
+                <p *ngIf='params.data.isc!="false"'>Ingenieria en Sistemas Computacionales</p>
+            </ion-item>
+            <ion-item>
+                 <p *ngIf='params.data.tic!="false"'>Ingenieria en Tecnologias de la Información</p>
+            </ion-item>
+            <ion-item>
+                <p *ngIf='params.data.mec!="false"'><i ion-model-s></i>Ingenieria Mecatronica</p>
+            </ion-item>
+            <ion-item>
+                <p *ngIf='params.data.otr!="false"'>Otras Ingenierias</p>
+            </ion-item>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

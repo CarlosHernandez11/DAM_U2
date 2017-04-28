@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      NavPush1
+    </ion-card-header>
+    <ion-card-content>
+      <p>Uso de <code>navPush</code> y <code>navParams</code>
+      </p>
+      <button ion-button block [navPush]="otherPage" [navParams]="myString"> OtherPage 2</button>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      NavPush2
+    </ion-card-header>
+    <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label floating>
+          Nombre
+        </ion-label>
+        <ion-input type="text" [(ngModel)]="myJSON.text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div>
+      <button ion-button block color="secondary" [navPush]="otherPage" [navParams] = "myJSON">Other Page2 </button>
+    </div>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-header>
+      NavPush3
+    </ion-card-header>
+    <ion-card-content>
+      <p> Uso de evento click
+        <code>navPush</code>
+      </p>
+      <button ion-button block color="dark" (click)="gotoOtherPage()">Other Page 3 </button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

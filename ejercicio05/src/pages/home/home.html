@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Custome pipes
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h4>Texto sin fomato</h4>
+  <ion-card>
+    <ion-card-header>
+      <code>User</code>
+    </ion-card-header>
+    <ion-card-content>
+      {{user | json}}
+    </ion-card-content>
+  </ion-card>
+ <h4>Con formato</h4>
+ <ion-list >
+      <ion-item>
+         <ion-label fixed>Nombre</ion-label> 
+         <ion-note center item-right>
+           {{ user | userExtract:"firstname"}}
+         </ion-note>
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>Apellido</ion-label> 
+         <ion-note center item-right>
+           {{ user | userExtract:"lastname"}}
+         </ion-note>
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>Edad</ion-label> 
+         <ion-note center item-right>
+           {{ user | userExtract:"age"}}
+         </ion-note>
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>DD/LL/AA</ion-label> 
+         <ion-note center item-right>
+           {{ fecha |dateFormat:"DD/LL/AA"}}
+         </ion-note>
+      
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>AA/MM/DD</ion-label> 
+         <ion-note center item-right>
+           {{ fecha |dateFormat:"AA/MM/DD"}}
+         </ion-note>
+      
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>AAA/LL/DD</ion-label> 
+         <ion-note center item-right>
+           {{ fecha |dateFormat:"AAA/LL/DD"}}
+         </ion-note>
+      
+      </ion-item>
+      <ion-item>
+         <ion-label fixed>DD/LL/AAAA</ion-label> 
+         <ion-note center item-right>
+           {{ fecha |dateFormat:"DD/LL/AAAA"}}
+         </ion-note>
+      
+      </ion-item>
+ </ion-list>
+</ion-content>
